@@ -1,10 +1,10 @@
 {
-    "name":"tietge/faq",
+    "name":"innomedia/faq",
     "description": "FAQ Module",
     "authors": [
       {
-        "name":"Tietge GmbH",
-        "email": "info@tietge.com"
+        "name":"innomedia AG",
+        "email": "info@innomedia.de"
       }
     ],
     "require":{
