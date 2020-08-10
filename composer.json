@@ -1,0 +1,19 @@
+{
+    "name":"tietge/faq",
+    "description": "FAQ Module",
+    "authors": [
+      {
+        "name":"Tietge GmbH",
+        "email": "info@tietge.com"
+      }
+    ],
+    "require":{
+      "silverstripe/recipe-cms": "^1.1"
+    },
+    "autoload": {
+      "psr-4": {
+        "FAQ\\": "src/"
+      }
+    }
+  }
+  

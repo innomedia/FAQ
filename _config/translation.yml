@@ -1,0 +1,17 @@
+---
+Name: faqfluent
+Only:
+  moduleexists: 'tractorcow/silverstripe-fluent'
+After:
+  - '#versionedfiles'
+---
+FAQ\DataObjects\FAQ:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+  field_exclude:
+    - TagSortTitle
+FAQ\DataObjects\FAQCategory:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+  field_exclude:
+    - TagSortTitle

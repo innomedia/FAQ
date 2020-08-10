@@ -1,0 +1,6 @@
+---
+Name: FAQModule
+---
+#Overwrite in own project if necessary
+FAQModuleConfig:
+  CategoriesEnabled: false
