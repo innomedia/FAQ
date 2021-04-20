@@ -34,6 +34,7 @@ class FAQPage extends Page
                 GridFieldConfig_RecordEditor::create(90)->addComponent(new GridFieldOrderableRows('Sort'))
             )
         );
+        $this->extend("updateFAQPageCMSFields",$fields);
         return $fields;
     }
     public function SortedFAQCategories()
