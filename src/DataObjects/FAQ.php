@@ -49,7 +49,7 @@ class FAQ extends DataObject
                 TagField::create(
                     'FAQCategories',
                     'Kategorien',
-                    FAQCategory::get()->filter('FAQPageID', $this->FAQPageID),
+                    $this->getCategories(),
                     $this->FAQCategories()
                 )
                     ->setShouldLazyLoad(true) // tags should be lazy loaded
@@ -58,5 +58,11 @@ class FAQ extends DataObject
         }
 
         return $fields;
+    }
+
+    public function getCategories(){
+        $categories = FAQCategory::get()->filter('FAQPageID', $this->FAQPageID);
+        $this->extend('updateCategories', $categories);
+        return $categories;
     }
 }
