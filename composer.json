@@ -2,7 +2,6 @@
     "name":"innomedia/faq",
     "description": "FAQ Module",
     "license": "BSD-3-Clause",
-    "version": "0.1.3",
     "authors": [
       {
         "name":"innomedia AG",
