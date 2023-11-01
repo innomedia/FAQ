@@ -12,6 +12,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\TagField\TagField;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 
@@ -46,14 +47,12 @@ class FAQ extends DataObject
         if (Config::inst()->get("FAQModuleConfig")["CategoriesEnabled"]) {
             $fields->addFieldToTab(
                 'Root.Main',
-                TagField::create(
+                CheckboxSetField::create(
                     'FAQCategories',
                     'Kategorien',
                     $this->getCategories(),
                     $this->FAQCategories()
                 )
-                    ->setShouldLazyLoad(true) // tags should be lazy loaded
-                    ->setCanCreate(false)
             );
         }
 
