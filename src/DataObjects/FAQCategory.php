@@ -5,6 +5,7 @@ namespace FAQ\DataObjects;
 use FAQ\Pages\FAQPage;
 use FAQ\DataObjects\FAQ;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\DropdownField;
 
 class FAQCategory extends DataObject
 {
@@ -29,6 +30,7 @@ class FAQCategory extends DataObject
            'Sort',
            'FAQPageID'
         ]);
+        $fields->addFieldToTab('Root.Main',DropdownField::create('FAQPageID','FAQPage',FAQPage::get()));
         return $fields;
     }
     public function Link()
