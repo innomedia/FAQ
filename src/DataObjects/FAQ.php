@@ -38,6 +38,10 @@ class FAQ extends DataObject
     private static $has_one = [
         'FAQPage' => FAQPage::class
     ];
+    public function Title()
+    {
+        return $this->Question;
+    }
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
