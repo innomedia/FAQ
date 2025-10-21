@@ -12,12 +12,13 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 
 class FAQPage extends Page
 {
-    private static $tablename = "FAQPage";
+    private static string $table_name = "FAQPage";
 
-    private static $has_many = [
+    private static array $has_many = [
         'FAQCategories' => FAQCategory::class,
         'FAQs' => FAQ::class,
     ];
+    
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -25,20 +26,27 @@ class FAQPage extends Page
         if (Config::inst()->get("FAQModuleConfig")["CategoriesEnabled"]) {
             $fields->addFieldToTab('Root.Kategorien',
                 GridField::create('FAQCategories','Kategorien',FAQCategory::get()->sort("Sort ASC"),
-                    GridFieldConfig_RecordEditor::create(20)->addComponent(new GridFieldOrderableRows("Sort"))
+                    GridFieldConfig_RecordEditor::create(20)->addComponent(GridFieldOrderableRows::create("Sort"))
                 )
             );
         }
+        
         $fields->addFieldToTab('Root.Fragen',
             GridField::create('FAQs','Fragen',$this->FAQs()->sort("Sort ASC"),
-                GridFieldConfig_RecordEditor::create(90)->addComponent(new GridFieldOrderableRows('Sort'))
+                GridFieldConfig_RecordEditor::create(90)->addComponent(GridFieldOrderableRows::create('Sort'))
             )
         );
         $this->extend("updateFAQPageCMSFields",$fields);
         return $fields;
     }
+    
     public function SortedFAQCategories()
     {
         return $this->FAQCategories()->sort("Sort ASC");
+    }
+
+    public function sortedFAQs()
+    {
+        return $this->FAQs()->sort("Sort ASC");
     }
 }

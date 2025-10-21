@@ -2,13 +2,12 @@
 
 namespace FAQ\Pages;
 use PageController;
-use SilverStripe\Dev\Debug;
 use FAQ\DataObjects\FAQCategory;
 use SilverStripe\Core\Config\Config;
 
 class FAQPageController extends PageController
 {
-    private static $allowed_actions = array(
+    private static array $allowed_actions = array(
 		'category'
     );
 
@@ -16,8 +15,10 @@ class FAQPageController extends PageController
 		if(Config::inst()->get("FAQModuleConfig")["CategoriesEnabled"]) {
 			return $this->renderCategory($this->request->latestParam('ID'));
 		}
+        
 		return $this->httpError(404);
     }
+    
     private function renderCategory($URLSegment)
     {
         $cat = FAQCategory::get()->filter("URLSegment",$URLSegment)->first();
@@ -26,7 +27,7 @@ class FAQPageController extends PageController
         {
             $templateData = array(
                 'Questions'	=> $cat->FAQs(),
-                'Title'			=> $this->Title . (($archive_) ? ' - ' . _t('Core.ARCHIVE', 'Archive') : null)
+                'Title'			=> $this->Title
             );
         }
         
