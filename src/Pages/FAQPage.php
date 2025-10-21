@@ -23,6 +23,11 @@ class FAQPage extends Page
     {
         $fields = parent::getCMSFields();
 
+        $fields->removeByName([
+            'FAQs',
+            'FAQCategories',
+        ]);
+
         if (Config::inst()->get("FAQModuleConfig")["CategoriesEnabled"]) {
             $fields->addFieldToTab('Root.Kategorien',
                 GridField::create('FAQCategories','Kategorien',FAQCategory::get()->sort("Sort ASC"),
