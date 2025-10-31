@@ -10,7 +10,7 @@ use SilverStripe\Forms\DropdownField;
 class FAQCategory extends DataObject
 {
 
-    private static string $table_name = "FAQCategory";
+    private static string $table_name = "FAQ_DataObjects_FAQCategory";
     
     private static array $db = [
         'Title' =>  'Text',

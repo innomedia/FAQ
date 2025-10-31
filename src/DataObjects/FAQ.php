@@ -13,7 +13,7 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class FAQ extends DataObject
 {
-    private static string $table_name = "FAQ";
+    private static string $table_name = "FAQ_DataObjects_FAQ";
     
     private static array $db = [
         "Question"  =>  'Text',
